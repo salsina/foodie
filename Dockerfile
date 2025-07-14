@@ -1,6 +1,8 @@
-# Simple, tiny container
 FROM node:20-alpine
 WORKDIR /app
 COPY relay.js .
-EXPOSE 443          # Railway maps its $PORT to 443 when we expose 443
+# ↓ either expose the port **without an inline comment** …
+EXPOSE 443
+
+# …or omit EXPOSE entirely (Railway still works without it)
 CMD ["node", "relay.js"]
